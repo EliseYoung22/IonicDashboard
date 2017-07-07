@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { Chart } from 'chartjs';
+import { Chart } from 'chart.js';
 
 import { GithubserviceProvider } from '../../providers/githubservice/githubservice'
 
@@ -14,7 +14,6 @@ import { GithubserviceProvider } from '../../providers/githubservice/githubservi
 export class ChartjsPage {
   users: any;
   userIds: any;
-  data: any;
 
   barChart: any;
   doughnutChart: any;
@@ -35,13 +34,13 @@ export class ChartjsPage {
     .then(users => {
     this.users = users;
     let userIds = [];
-    for (var i = 0; i < 3; i++) {
-        userIds.push(users[4].id);
+    for (var i = 0; i < 4; i++) {
+        userIds.push(users[6].id);
     }
     console.log(userIds);        
     console.log(this.users);
-    this.barChart.data.datasets.data = userIds;
-    this.doughnutChart.data.datasets.data = userIds;
+    this.barChart.data.datasets[0].data = userIds;
+    this.doughnutChart.data.datasets[0].data = userIds;
     });
   }
   
@@ -115,7 +114,7 @@ export class ChartjsPage {
     labels: ["Discover", "Share", "Act"],
         datasets: [{
             label: '%',
-            data: this.userIds,
+            data: [89, 44, 67],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.4)',
                 'rgba(54, 162, 235, 0.4)',
