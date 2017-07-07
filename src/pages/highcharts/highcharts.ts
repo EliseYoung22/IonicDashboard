@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { GithubserviceProvider } from '../../providers/githubservice/githubservice'
+
 @IonicPage()
 @Component({
   selector: 'page-highcharts',
@@ -13,7 +15,26 @@ export class HighchartsPage {
   users: any;
   userIds: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  getUsers() {
+    this.githubServiceProvider.getUsers()
+    .then(users => {
+    this.users = users;
+    let userIds = [];
+    for (var i = 0; i < 3; i++) {
+        userIds.push(users[4].id);
+    }
+    console.log(userIds);        
+    // console.log(this.users);
+    console.log('bubble');
+    
+    this.bubblechart.series[0].data = userIds;
+    });
+  }
+
+  constructor(private githubServiceProvider: GithubserviceProvider, public navCtrl: NavController, public navParams: NavParams) {
+    this.getUsers();
+    console.log(this.userIds);
+    
     this.chartOptions = {
       chart: {
             type: 'bar'
@@ -31,7 +52,7 @@ export class HighchartsPage {
         },
         series: [{
             name: 'Jane',
-            data: [1, 0, 4]
+            data: this.userIds,
         }, {
             name: 'John',
             data: [5, 7, 3]
@@ -89,6 +110,10 @@ export class HighchartsPage {
         }
       }] 
     }
+  }
+  
+  ionViewWillEnter(){
+     this.getUsers();
   }
 
   ionViewDidLoad() {
