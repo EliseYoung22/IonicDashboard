@@ -7,6 +7,10 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ChartjsPage } from '../pages/chartjs/chartjs';
+import { HighchartsPage } from '../pages/highcharts/highcharts';
+
+import { ChartModule } from 'angular2-highcharts';
+declare var require: any;
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,11 +22,15 @@ import { GithubserviceProvider } from '../providers/githubservice/githubservice'
     MyApp,
     HomePage,
     ListPage, 
-    ChartjsPage
+    ChartjsPage,
+    HighchartsPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    ChartModule.forRoot(
+    require('Highcharts'),require('../../node_modules/highcharts/highcharts-more.js'),require('highcharts/modules/exporting'),
+    ),
     HttpModule
   ],
   bootstrap: [IonicApp],
@@ -30,7 +38,8 @@ import { GithubserviceProvider } from '../providers/githubservice/githubservice'
     MyApp,
     HomePage,
     ListPage, 
-    ChartjsPage
+    ChartjsPage,
+    HighchartsPage
   ],
   providers: [
     StatusBar,
