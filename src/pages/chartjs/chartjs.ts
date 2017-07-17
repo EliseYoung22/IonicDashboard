@@ -34,7 +34,7 @@ export class ChartjsPage {
     .then(users => {
     this.users = users;
     let userIds = [];
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < 3; i++) {
         userIds.push(users[6].id);
     }
     console.log(userIds);        
@@ -288,5 +288,24 @@ export class ChartjsPage {
     }
     return this.getChart(this.radarCanvas.nativeElement, "radar", data, options);
   }
+
+////////////////UPDATING CHART WITH NEW DATA/////////////
+
+//   addData(chart, label, data){
+//       chart.data.labels.push(label);
+//       chart.data.datasets.forEach((dataset) => {
+//           dataset.data.push(data);
+//       })
+//       chart.update();
+//   }
+
+// to potentially update labels, add this to addData function lineChart.config.data.label = newLabels
   
+//   removeData(chart){
+//       chart.data.labels.pop();
+//       chart.data.datasets.forEach((dataset) => {
+//           dataset.data.pop();
+//       })
+//       chart.update();
+//   }
 }
