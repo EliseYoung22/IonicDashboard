@@ -1,14 +1,25 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
+    <ion-title>
+      Ionic Charts
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Chart Dashboard</h3>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+   <section class="chart-wrapper">
+      <canvas #barChart></canvas>
+   </section>
+
+
+   <section class="chart-wrapper">
+      <canvas #pieChart></canvas>
+   </section>
+
+
+   <section class="chart-wrapper">
+      <canvas #lineChart></canvas>
+   </section>
+
 </ion-content>

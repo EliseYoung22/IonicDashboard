@@ -16,6 +16,7 @@ declare var require: any;
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { GithubserviceProvider } from '../providers/githubservice/githubservice';
+import { GraphsComponent } from '../components/graphs/graphs';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { GithubserviceProvider } from '../providers/githubservice/githubservice'
     HomePage,
     ListPage, 
     ChartjsPage,
-    HighchartsPage
+    HighchartsPage,
+    GraphsComponent
   ],
   imports: [
     BrowserModule,

@@ -104,7 +104,8 @@ export class ChartjsPage {
             beginAtZero: true
           }
         }]
-      }
+      },
+      multiTooltipTemplate: this.userIds 
     }
     return this.getChart(this.barCanvas.nativeElement, "bar", data, options);
   }
@@ -136,6 +137,8 @@ export class ChartjsPage {
     return this.getChart(this.doughnutCanvas.nativeElement, "doughnut", data);
   }
 
+  
+
   getLineChart(){
     let data = {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -159,7 +162,7 @@ export class ChartjsPage {
                 pointHoverBorderWidth: 2,
                 pointRadius: 1,
                 pointHitRadius: 10,
-                data: [45, 57, 60, 65, 62, 68, 70],
+                data: [45, 45, 67, 54, 34],
                 spanGaps: false,
             },
             {
@@ -181,11 +184,28 @@ export class ChartjsPage {
                 pointHoverBorderWidth: 2,
                 pointRadius: 1,
                 pointHitRadius: 10,
-                data: [33, 78, 48, 64, 54, 71, 73],
+                data: [33, 34, 56, 54, 32],
                 spanGaps: false,
             }
         ],
     }
+
+    // let options = {
+    //     onAnimationComplete: 
+    //     function () {
+    //         var ctx = this.chart.ctx;
+    //         ctx.font = this.scale.font;
+    //         ctx.fillStyle = this.scale.textColor
+    //         ctx.textAlign = "center";
+    //         ctx.textBaseline = "bottom";
+
+    //         this.datasets.forEach(function (dataset) {
+    //             dataset.points.forEach(function (points) {
+    //                 ctx.fillText(points.value, points.x, points.y - 10);
+    //             });
+    //         })
+    //     }
+    // }
     return this.getChart(this.lineCanvas.nativeElement, "line", data);
   }
 
